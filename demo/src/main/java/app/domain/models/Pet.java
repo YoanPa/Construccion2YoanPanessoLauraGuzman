@@ -4,10 +4,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@SuppressWarnings("unused")
 public class Pet {
 	private long petId;
 	private String petname;
-	private String humanId;
+	private Person humanId;
 	private int age;
 	private String species;
 	private String breed;
@@ -26,10 +27,10 @@ public class Pet {
 	public void setpetname(String petname) {
 		this.petname = petname;
 	}
-	public String gethumanId() {
+	public Person gethumanId() {
 		return humanId;
 	}
-	public void sethumanId(String humanId) {
+	public void sethumanId(Person humanId) {
 		this.humanId = humanId;
 	}
 	public int getage() {

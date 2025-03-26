@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+@SuppressWarnings("unused")
 public class User extends Person {
 	private String userName;
 	private String password;

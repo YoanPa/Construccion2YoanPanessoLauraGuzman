@@ -92,7 +92,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <mainClass>app.</mainClass>
+                            <mainClass>app.VetApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,5 +1,5 @@
 package app.domain.models;
 
-public class Orden {
+public class Order {
 
 }

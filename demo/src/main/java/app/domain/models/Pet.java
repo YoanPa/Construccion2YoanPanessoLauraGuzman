@@ -1,67 +1,62 @@
 package app.domain.models;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@SuppressWarnings("unused")
 public class Pet {
 	private long petId;
 	private String petname;
-	private Person humanId;
+	private Person owner;
 	private int age;
 	private String species;
 	private String breed;
 	private String characteristics;
-	private float weight;
-	
-	public long getpetId() {
+	private long weight;
+	public long getPetId() {
 		return petId;
 	}
-	public void setpetId(long petId) {
+	public void setPetId(long petId) {
 		this.petId = petId;
 	}
-	public String getpetname() {
+	public String getPetname() {
 		return petname;
 	}
-	public void setpetname(String petname) {
+	public void setPetname(String petname) {
 		this.petname = petname;
 	}
-	public Person gethumanId() {
-		return humanId;
+	public Person getOwner() {
+		return owner;
 	}
-	public void sethumanId(Person humanId) {
-		this.humanId = humanId;
+	public void setOwner(Person owner) {
+		this.owner = owner;
 	}
-	public int getage() {
+	public int getAge() {
 		return age;
 	}
-	public void setage(int age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getspecies() {
+	public String getSpecies() {
 		return species;
 	}
-	public void setspecies(String species) {
+	public void setSpecies(String species) {
 		this.species = species;
 	}
-	public String getbreed() {
+	public String getBreed() {
 		return breed;
 	}
-	public void setbreed(String breed) {
+	public void setBreed(String breed) {
 		this.breed = breed;
 	}
-	public String getcharacteristics() {
+	public String getCharacteristics() {
 		return characteristics;
 	}
-	public void setcharacteristics(String characteristics) {
+	public void setCharacteristics(String characteristics) {
 		this.characteristics = characteristics;
 	}
-	public float getweight( ) {
+	public long getWeight() {
 		return weight;
 	}
-	public void setweight(float weight) {
+	public void setWeight(long weight) {
 		this.weight = weight;
 	}
-
+	
+	
 }

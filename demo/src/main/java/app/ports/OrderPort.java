@@ -1,5 +1,5 @@
 package app.ports;
 
-public class OrderPort {
+public interface OrderPort {
 
 }

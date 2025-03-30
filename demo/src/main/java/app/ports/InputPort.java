@@ -1,5 +1,5 @@
 package app.ports;
 
-public class InputPort {
-
+public interface InputPort {
+    void menu() throws Exception;
 }

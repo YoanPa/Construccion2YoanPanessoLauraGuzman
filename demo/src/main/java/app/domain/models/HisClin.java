@@ -131,6 +131,9 @@ public class HisClin {
 	
 	}
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 4f3d35ab791ee944f32e2c54b531579132375fa1

@@ -1,20 +1,20 @@
 package app.domain.models;
 
 public class User extends Person {
-	private String userName;
-	private String password;
+	private User userName;
+	private long password;
 	
 	
-	public String getUserName() {
+	public User getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName) {
+	public void setUserName(User userName) {
 		this.userName = userName;
 	}
-	public String getPassword() {
+	public long getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(long password) {
 		this.password = password;
 	}
 

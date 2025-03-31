@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 @Table(name = "user")
 public class UserEntity {
 	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JoinColumn(name="personid")
 	@OneToOne
 	private PersonEntity personId;

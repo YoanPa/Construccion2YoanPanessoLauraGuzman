@@ -1,5 +1,8 @@
 package app.adapters.invoice.repository;
 
-public class InvoiceRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import app.adapters.invoice.entity.InvoiceEntity;
 
+public interface InvoiceRepository extends JpaRepository<InvoiceEntity, Long> {
+    
 }

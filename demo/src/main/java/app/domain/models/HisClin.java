@@ -95,6 +95,8 @@ public class HisClin {
 	public void setOrderCanceled(boolean orderCanceled) {
 		this.orderCanceled = orderCanceled;
 	}
+	
+	}
 
 
 

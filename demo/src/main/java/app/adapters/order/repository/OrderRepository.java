@@ -1,5 +1,7 @@
 package app.adapters.order.repository;
 
-public class OrderRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import app.adapters.order.entity.OrderEntity;
 
+public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 }

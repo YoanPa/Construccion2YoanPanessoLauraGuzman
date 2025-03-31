@@ -1,6 +1,5 @@
 package app.adapters.inputs;
 
-import app.ports.InputPort;
 import app.ports.HisClinPort;
 import app.adapters.inputs.utils.Utils;
 import app.domain.models.HisClin;

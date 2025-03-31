@@ -1,21 +1,23 @@
 package app.adapters.inputs;
 
 import app.ports.InputPort;
+import app.ports.HisClinPort;
 import app.adapters.inputs.utils.Utils;
+import app.domain.models.HisClin;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HisClinInput implements InputPort {
+public class HisClinInput {
+    
+    private final HisClinPort hisClinPort;
 
-    private final String MENU = "Ingrese la opción:\n" +
-            "1. Registrar historia clínica\n" +
-            "2. Consultar historia clínica\n" +
-            "3. Salir";
+    public HisClinInput(HisClinPort hisClinPort) {
+        this.hisClinPort = hisClinPort;
+    }
 
-    @Override
-    public void menu() throws Exception {
+    public void menu() {
         while (true) {
-            System.out.println(MENU);
+            System.out.println("Ingrese la opción:\n1. Registrar historia clínica\n2. Consultar historia clínica\n3. Salir");
             String option = Utils.getReader().nextLine();
             switch (option) {
                 case "1":
@@ -34,13 +36,39 @@ public class HisClinInput implements InputPort {
     }
 
     private void registerHistory() {
-        System.out.println("Funcionalidad para registrar historia clínica.");
-        // Aquí va la lógica de registro
+        try {
+            System.out.println("Ingrese el ID de la mascota:");
+            long petId = Long.parseLong(Utils.getReader().nextLine());
+
+            System.out.println("Ingrese la descripción del historial:");
+            String description = Utils.getReader().nextLine();
+
+            HisClin hisClin = new HisClin();
+            hisClin.setPetId(petId);
+            hisClin.setDescription(description);
+
+            hisClinPort.save(hisClin);
+            System.out.println("Historia clínica registrada con éxito.");
+        } catch (Exception e) {
+            System.out.println("Error al registrar la historia clínica: " + e.getMessage());
+        }
     }
 
     private void consultHistory() {
-        System.out.println("Funcionalidad para consultar historia clínica.");
-        // Aquí va la lógica de consulta
+        try {
+            System.out.println("Ingrese el ID de la mascota:");
+            long petId = Long.parseLong(Utils.getReader().nextLine());
+
+            HisClin history = hisClinPort.findByPetId(petId);
+
+            if (history != null) {
+                System.out.println("Historia clínica encontrada: " + history.getDescription());
+            } else {
+                System.out.println("No se encontró historia clínica para esta mascota.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar la historia clínica: " + e.getMessage());
+        }
     }
 }
 

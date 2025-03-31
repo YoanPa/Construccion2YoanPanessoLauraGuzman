@@ -59,6 +59,10 @@ public class Pet {
 	public void setWeight(long weight) {
 		this.weight = weight;
 	}
+	public void setOwner(Person personAdapter) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

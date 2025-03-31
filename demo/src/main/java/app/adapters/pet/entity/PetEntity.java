@@ -1,6 +1,7 @@
 package app.adapters.pet.entity;
 
 import app.adapters.person.entity.PersonEntity;
+import app.domain.models.Person;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -73,6 +74,10 @@ public class PetEntity {
 	}
 	public void setWeight(long weight) {
 		this.weight = weight;
+	}
+	public void setOwner(Person personAdapter) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

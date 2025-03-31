@@ -44,7 +44,7 @@ public class HisClinAdapter implements HisClinPort {
         HisClinEntity hisClinEntity = new HisClinEntity();
         hisClinEntity.setHistoryId(hisClin.getHistoryId());
         hisClinEntity.setPet(petAdapter(hisClin.getPet()));
-        hisClinEntity.setVeterinarian(personAdapter(hisClin.getVeterinarian()));
+        hisClinEntity.setVeterinarian(personAdapter(hisClin.getVeterinarianId()));
         hisClinEntity.setDate(hisClin.getDate());
         hisClinEntity.setDescription(hisClin.getDescription());
         return hisClinEntity;
@@ -54,7 +54,7 @@ public class HisClinAdapter implements HisClinPort {
         HisClin hisClin = new HisClin();
         hisClin.setHistoryId(hisClinEntity.getHistoryId());
         hisClin.setPet(petAdapter(hisClinEntity.getPet()));
-        hisClin.setVeterinarian(personAdapter(hisClinEntity.getVeterinarian()));
+        hisClin.setVeterinarianId(personAdapter(hisClinEntity.getVeterinarianId()));
         hisClin.setDate(hisClinEntity.getDate());
         hisClin.setDescription(hisClinEntity.getDescription());
         return hisClin;
@@ -71,19 +71,6 @@ public class HisClinAdapter implements HisClinPort {
         petEntity.setCharacteristics(pet.getCharacteristics());
         petEntity.setWeight(pet.getWeight());
         return petEntity;
-    }
-
-    private Pet petAdapter(PetEntity petEntity) {
-        Pet pet = new Pet();
-        pet.setPetId(petEntity.getPetId());
-        pet.setPetname(petEntity.getPetname());
-        pet.setOwner(personAdapter(petEntity.getOwner()));
-        pet.setAge(petEntity.getAge());
-        pet.setSpecies(petEntity.getSpecies());
-        pet.setBreed(petEntity.getBreed());
-        pet.setCharacteristics(petEntity.getCharacteristics());
-        pet.setWeight(petEntity.getWeight());
-        return pet;
     }
 
     private PersonEntity personAdapter(Person person) {

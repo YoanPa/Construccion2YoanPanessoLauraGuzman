@@ -20,9 +20,10 @@ public class UserAdapter implements UserPort {
 	@Autowired
 	private UserRepository userRepository;
 	@Override
-	public boolean existUserName(String userName) {
+	public boolean existUserName(User userName) {
 		return userRepository.existsByUserName(userName);
 	}
+
 
 	@Override
 	public void saveUser(User user) {
@@ -80,4 +81,6 @@ public class UserAdapter implements UserPort {
 		personEntity.setRole(person.getRole());
 		return personEntity;
 	}
+
+	
 }

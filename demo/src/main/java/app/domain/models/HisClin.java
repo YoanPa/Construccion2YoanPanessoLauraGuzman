@@ -2,9 +2,6 @@ package app.domain.models;
 
 import java.sql.Date;
 
-import app.adapters.person.entity.PersonEntity;
-import app.adapters.pet.entity.PetEntity;
-
 public class HisClin {
 	private Date date;
     private User veterinarianId;
@@ -98,42 +95,9 @@ public class HisClin {
 	public void setOrderCanceled(boolean orderCanceled) {
 		this.orderCanceled = orderCanceled;
 	}
-	public void setHistoryId(Object historyId) {
-		// TODO Auto-generated method stub
-		
-	}
-	public Object getHistoryId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public Pet getPet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public Object getDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public void setPet(PetEntity petAdapter) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setDescription(Object description) {
-		
-	}
-	public void setVeterinarianId(PersonEntity personAdapter) {
-		
-		
-	}
 	
-		
-	
-	
-	}
-
-<<<<<<< HEAD
+}
 
 
 
-=======
->>>>>>> 4f3d35ab791ee944f32e2c54b531579132375fa1
+

@@ -125,6 +125,10 @@ public class HisClin {
 		
 		
 	}
+	public void setPetId(long petId) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 		
 	

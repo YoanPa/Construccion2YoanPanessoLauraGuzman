@@ -2,48 +2,57 @@ package app.adapters.order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import app.adapters.order.entity.OrderEntity;
 import app.adapters.order.repository.OrderRepository;
 import app.domain.models.Order;
 import app.ports.OrderPort;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
+@Getter
+@NoArgsConstructor
 @Service
 public class OrderAdapter implements OrderPort {
     
     @Autowired
     private OrderRepository orderRepository;
+    
+    @Override
+    public boolean existsOrderId(Order order) {
+        return orderRepository.existsByOrderId(order.getOrderId());
+    }
 
     @Override
-    public void save(Order order) {
+    public void saveOrder(Order order) {
         OrderEntity orderEntity = orderAdapter(order);
         orderRepository.save(orderEntity);
         order.setOrderId(orderEntity.getOrderId());
     }
 
     @Override
-    public Order findById(Long orderId) {
-        OrderEntity orderEntity = orderRepository.findById(orderId);
-        if (orderEntity == null) {
-            return null;
-        }
+    public Order findByOrderId(Order order) {
+        OrderEntity orderEntity = orderRepository.findByOrderId(order.getOrderId());
         return orderAdapter(orderEntity);
     }
-
-    private OrderEntity orderAdapter(Order order) {
-        OrderEntity orderEntity = new OrderEntity();
-        orderEntity.setOrderId(order.getOrderId());
-        orderEntity.setDate(order.getDate());
-        orderEntity.setTotal(order.getTotal());
-        return orderEntity;
-    }
-
+    
     private Order orderAdapter(OrderEntity orderEntity) {
         Order order = new Order();
         order.setOrderId(orderEntity.getOrderId());
+        order.setClientId(orderEntity.getClientId());
+        order.setTotalAmount(orderEntity.getTotalAmount());
         order.setDate(orderEntity.getDate());
-        order.setTotal(orderEntity.getTotal());
         return order;
+    }
+    
+    private OrderEntity orderAdapter(Order order) {
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setOrderId(order.getOrderId());
+        orderEntity.setClientId(order.getClientId());
+        orderEntity.setTotalAmount(order.getTotalAmount());
+        orderEntity.setDate(order.getDate());
+        return orderEntity;
     }
 
 	@Override

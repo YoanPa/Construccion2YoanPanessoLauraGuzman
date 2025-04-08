@@ -76,8 +76,7 @@ public class PetEntity {
 		this.weight = weight;
 	}
 	public void setOwner(Person personAdapter) {
-		// TODO Auto-generated method stub
-		
+			
 	}
 	
 }

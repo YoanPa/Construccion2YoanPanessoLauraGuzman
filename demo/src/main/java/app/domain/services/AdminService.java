@@ -38,5 +38,6 @@ public class AdminService {
 		personPort.savePerson(veterinarian);
 		userPort.saveUser(veterinarian);
 
+		//registrar dueño de mascota
 	}
 }

@@ -1,5 +1,7 @@
 package app.adapters.order;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,26 +17,27 @@ public class OrderAdapter implements OrderPort {
     private OrderRepository orderRepository;
 
     @Override
-    public void save(Order order) {
+    public Order saveOrder(Order order) {
         OrderEntity orderEntity = orderAdapter(order);
         orderRepository.save(orderEntity);
         order.setOrderId(orderEntity.getOrderId());
+		return order;
     }
 
     @Override
-    public Order findById(Long orderId) {
-        OrderEntity orderEntity = orderRepository.findById(orderId);
+    public Order findByOrderId(Long orderId) {
+        Optional<OrderEntity> orderEntity = orderRepository.findById(orderId);
         if (orderEntity == null) {
             return null;
         }
         return orderAdapter(orderEntity);
     }
 
-    private OrderEntity orderAdapter(Order order) {
+    private OrderEntity orderAdapter(Optional<OrderEntity> orderEntity2) {
         OrderEntity orderEntity = new OrderEntity();
-        orderEntity.setOrderId(order.getOrderId());
-        orderEntity.setDate(order.getDate());
-        orderEntity.setTotal(order.getTotal());
+        orderEntity.setOrderId(orderEntity2.getOrderId());
+        orderEntity.setDate(orderEntity2.getDate());
+        orderEntity.setTotal(orderEntity2.getTotal());
         return orderEntity;
     }
 
@@ -47,20 +50,10 @@ public class OrderAdapter implements OrderPort {
     }
 
 	@Override
-	public Order createOrder(Order order) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Order deleteOrder(Order order) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Order findbyOrderId(Order orderId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

@@ -17,7 +17,7 @@ public class InvoiceEntity {
     private PersonEntity client;
     
     @Column(name = "date")
-    private String date;
+    private java.util.Date date;
     
     @Column(name = "total")
     private double total;
@@ -38,11 +38,11 @@ public class InvoiceEntity {
         this.client = client;
     }
 
-    public String getDate() {
+    public java.util.Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 
@@ -53,4 +53,19 @@ public class InvoiceEntity {
     public void setTotal(double total) {
         this.total = total;
     }
+
+	public void setAmount(Object amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Object getAmount1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAmount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -1,5 +1,8 @@
-package app.adapters.inputs;
-
-public class OrderInput {
+/*
+ * package app.adapters.inputs;
+ * public class OrderInput {
 
 }
+
+ */
+

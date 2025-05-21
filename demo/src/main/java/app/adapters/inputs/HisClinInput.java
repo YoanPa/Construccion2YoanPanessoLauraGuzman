@@ -1,6 +1,6 @@
-package app.adapters.inputs;
-
-import app.ports.HisClinPort;
+/*
+ * package app.adapters.inputs;
+ * import app.ports.HisClinPort;
 import app.adapters.inputs.utils.Utils;
 import app.domain.models.HisClin;
 import org.springframework.stereotype.Component;
@@ -43,7 +43,7 @@ public class HisClinInput {
             String description = Utils.getReader().nextLine();
 
             HisClin hisClin = new HisClin();
-            hisClin.setPetId(petId);
+            hisClin.setPetId(petId);//se tiene que crear o cambiar para que resulte, en el modelo de hisclin
             hisClin.setDescription(description);
 
             hisClinPort.save(hisClin);
@@ -58,7 +58,7 @@ public class HisClinInput {
             System.out.println("Ingrese el ID de la mascota:");
             long petId = Long.parseLong(Utils.getReader().nextLine());
 
-            HisClin history = hisClinPort.findByPetId(petId);
+            HisClin history = hisClinPort.findByPetId(petId);//#2
 
             if (history != null) {
                 System.out.println("Historia clínica encontrada: " + history.getDescription());
@@ -70,4 +70,7 @@ public class HisClinInput {
         }
     }
 }
+
+
+ */
 

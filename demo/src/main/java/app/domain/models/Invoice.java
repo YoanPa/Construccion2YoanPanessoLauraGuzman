@@ -59,5 +59,13 @@ public class Invoice {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public Object getAmount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setAmount(Object amount) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

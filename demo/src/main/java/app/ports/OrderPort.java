@@ -9,5 +9,7 @@ public interface OrderPort {
 	
 	public Order findByOrderId(Long orderId);
 
+	boolean existsOrderId(Order order);
+
 	
 }

@@ -1,4 +1,5 @@
-package app.adapters.inputs.utils;
+/*
+ * package app.adapters.inputs.utils;
 
 import java.util.Scanner;
 
@@ -9,3 +10,5 @@ public abstract class Utils {
         return reader;
     }
 }
+
+ */

@@ -1,5 +1,7 @@
 package app.adapters.invoice;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +16,20 @@ public class InvoiceAdapter implements InvoicePort {
     @Autowired
     private InvoiceRepository invoiceRepository;
 
-    @Override
     public Invoice findById(Long id) {
-        InvoiceEntity invoiceEntity = invoiceRepository.findById(id);
+        Optional<InvoiceEntity> invoiceEntity = invoiceRepository.findById(id);
         if (invoiceEntity == null) {
             return null;
         }
-        return invoiceAdapter(invoiceEntity);
+        return invoice(invoiceEntity);
     }
 
-    @Override
-    public void save(Invoice invoice) {
+    private Invoice invoice(Optional<InvoiceEntity> invoiceEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void save(Invoice invoice) {
         InvoiceEntity invoiceEntity = invoiceAdapter(invoice);
         invoiceRepository.save(invoiceEntity);
         invoice.setInvoiceId(invoiceEntity.getInvoiceId());

@@ -41,4 +41,20 @@ public class PersonEntity {
 	public void setRole(String role) {
 		this.role = role;		
 	}
+	public Object getCellPhone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setCellPhone(Object cellPhone) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setDocument(Object document) {
+		// TODO Auto-generated method stub
+		
+	}
+	public Object getDocument() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

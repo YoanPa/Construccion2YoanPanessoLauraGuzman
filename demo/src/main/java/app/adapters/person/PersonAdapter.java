@@ -59,5 +59,11 @@ public class PersonAdapter implements PersonPort {
 		return personEntity;
 		
 	}
+
+	@Override
+	public Person findbyOrderId(long personId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 	

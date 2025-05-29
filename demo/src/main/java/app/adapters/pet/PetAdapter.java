@@ -19,10 +19,11 @@ public class PetAdapter implements PetPort {
 	private PetRepository petRepository;
 	
 	@Override
-	public boolean exitsPetId(Pet petId) {
+	public boolean exitsPet(long petId) {
 		
-		return petRepository.existsByPersonId(petId);
+		return petRepository.existsByPetId(petId);
 	}
+
 
 	@Override
 	public void savePet(Pet pet) {
@@ -32,12 +33,14 @@ public class PetAdapter implements PetPort {
 	}
 
 	@Override
-	public Pet findbyPetId(Pet petId) {
+	public Pet findByPetId(long petId) {
 		PetEntity petEntity = petRepository.findByPetId(petId);
 		return petAdapter(petEntity);
 	}
 	
 	private Pet petAdapter(PetEntity petEntity) {
+		if (petEntity == null)
+			return null;
 		Pet pet = new Pet();
 		pet.setPetId(petEntity.getPetId());
 		pet.setPetname(petEntity.getPetname());
@@ -63,5 +66,6 @@ public class PetAdapter implements PetPort {
 		petEntity.setWeight(pet.getWeight());
 		return petEntity;
 	}
+
 
 }

@@ -22,7 +22,7 @@ public class UserAdapter implements UserPort {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private PersonPort personPort;
+	private PersonPort personPort;//dice que no se uso
 	
 	@Override
 	public boolean existUserName(String userName) {
@@ -38,8 +38,8 @@ public class UserAdapter implements UserPort {
 	
 
 	@Override
-	public User findByUserName(User user) {
-		UserEntity userEntity = userRepository.findByUserName(user.getUserName());
+	public User findByUserName(String userName) {
+		UserEntity userEntity = userRepository.findByUserName(userName);
 		if (userEntity == null) {
 			return null;
 		}
@@ -62,7 +62,7 @@ public class UserAdapter implements UserPort {
 	private UserEntity userEntityAdapter(User user) {
 		PersonEntity personEntity = personAdapter(user);
 		UserEntity userEntity = new UserEntity();
-		userEntity.setPersonId(personEntity);
+		userEntity.setId(user.getPersonId());
 		userEntity.setUserName(user.getUserName());
 		userEntity.setPassword(user.getPassword());
 		return userEntity;

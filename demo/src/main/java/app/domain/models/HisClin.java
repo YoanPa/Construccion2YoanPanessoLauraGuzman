@@ -12,7 +12,7 @@ public class HisClin {
     private String symptoms;
     private String diagnosis;
     private String procedure;
-    private String medication;
+    private String medicationName;
     private String medicationDose;
     private Order orderId;
     private String vaccinationHistory;
@@ -62,11 +62,11 @@ public class HisClin {
 	public void setProcedure(String procedure) {
 		this.procedure = procedure;
 	}
-	public String getMedication() {
-		return medication;
+	public String getMedicationName() {
+		return medicationName;
 	}
-	public void setMedication(String medication) {
-		this.medication = medication;
+	public void setMedicationName(String medicationName) {
+		this.medicationName = medicationName;
 	}
 	public String getMedicationDose() {
 		return medicationDose;

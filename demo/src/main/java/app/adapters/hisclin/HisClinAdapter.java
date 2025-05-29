@@ -23,30 +23,45 @@ public class HisClinAdapter implements HisClinPort {
     @Autowired
     private HisClinRepository hisClinRepository;
 
+    
     @Override
-    public HisClin findByPetId(Pet pet) {
-        PetEntity petEntity = petAdapter(pet);
-        HisClinEntity hisClinEntity = hisClinRepository.findByPet(petEntity);
-        if (hisClinEntity == null) {
-            return null;
-        }
-        return hisClinAdapter(hisClinEntity);
-    }
+	public boolean existHisClin(long hisclinId) {
+		return hisClinRepository.existsByHisClinId(hisclinId);
+		
 
-    @Override
-    public void save(HisClin hisClin) {
-        HisClinEntity hisClinEntity = hisClinAdapter(hisClin);
-        hisClinRepository.save(hisClinEntity);
-        hisClin.setHistoryId(hisClinEntity.getHistoryId());
-    }
+	}
+
+	@Override
+	public void saveHisClin(HisClin hisclin) {
+		HisClinEntity hisclinEntity = hisClinAdapter(hisclin);
+		hisClinRepository.save(hisclinEntity);
+		hisclin.setHisclinId(hisclinEntity.getHisclinId());
+	}
+
+	@Override
+	public HisClin findByHisClin(long hisclinId) {
+		
+		HisClinEntity hisClinEntity = hisClinRepository.findByHisClin(hisclinId);
+		
+		return hisClinAdapter(hisClinEntity);
+	}
 
     private HisClinEntity hisClinAdapter(HisClin hisClin) {
         HisClinEntity hisClinEntity = new HisClinEntity();
-        hisClinEntity.setHistoryId(hisClin.getHistoryId());
-        hisClinEntity.setPet(petAdapter(hisClin.getPet()));
-        hisClinEntity.setVeterinarian(personAdapter(hisClin.getVeterinarianId()));
+        hisClinEntity.setHisclinId(hisClin.getHisclinId());
         hisClinEntity.setDate(hisClin.getDate());
-        hisClinEntity.setDescription(hisClin.getDescription());
+        hisClinEntity.setVeterianrianId(hisClin.getVeterinarianId());
+        hisClinEntity.setConsultationReason(hisClin.getConsultationReason());
+        hisClinEntity.setSymptons(hisClin.getSymptoms());
+        hisClinEntity.setDiagnosis(hisClin.getDiagnosis());
+        hisClinEntity.setProcedure(hisClin.getProcedure());
+        hisClinEntity.setMedicationName(hisClin.getMedicationName());
+        hisClinEntity.setMedicationDose(hisClin.getMedicationDose());
+        hisClinEntity.setOrderId(hisClin.getOrderId());
+        hisClinEntity.setVaccinationHistory(hisClin.getVaccinationHistory());
+        hisClinEntity.setAllergyMedications(hisClin.getAllergyMedications());
+        hisClinEntity.setProcedureDetails(hisClin.getProcedureDetails());
+        hisClinEntity.setOrderCanceled(true);
         return hisClinEntity;
     }
 
@@ -91,15 +106,3 @@ public class HisClinAdapter implements HisClinPort {
         return person;
     }
 
-	@Override
-	public void saveHisClin(HisClin hisclin) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public HisClin FindbyHisClin(HisClin hisclin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}

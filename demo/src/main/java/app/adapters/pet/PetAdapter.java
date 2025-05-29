@@ -2,6 +2,8 @@ package app.adapters.pet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import app.adapters.person.entity.PersonEntity;
 import app.adapters.pet.entity.PetEntity;
 import app.adapters.pet.repository.PetRepository;
 import app.domain.models.Pet;
@@ -41,6 +43,7 @@ public class PetAdapter implements PetPort {
 	private Pet petAdapter(PetEntity petEntity) {
 		if (petEntity == null)
 			return null;
+		//PersonEntity personEntity = petAdapter(person);
 		Pet pet = new Pet();
 		pet.setPetId(petEntity.getPetId());
 		pet.setPetname(petEntity.getPetname());

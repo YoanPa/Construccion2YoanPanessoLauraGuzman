@@ -32,7 +32,7 @@ public class OrderEntity {
     private HisClin medicationName;
     
     @Column(name = "creationDate")
-    private String ceationDate;
+    private String creationDate;
 
 	public long getOrderId() {
 		return orderId;
@@ -74,12 +74,12 @@ public class OrderEntity {
 		this.medicationName = medicationName;
 	}
 
-	public String getCeationDate() {
-		return ceationDate;
+	public String getCreationDate() {
+		return creationDate;
 	}
 
-	public void setCeationDate(String ceationDate) {
-		this.ceationDate = ceationDate;
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
 	}
 
 }

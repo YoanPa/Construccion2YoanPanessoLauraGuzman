@@ -42,8 +42,8 @@ public class HisClinEntity {
     @Column(name = "procedure")
     private String procedure;
 
-    @Column(name = "medication")
-    private String medication;
+    @Column(name = "medicationName")
+    private String medicationName;
 
     @Column(name = "medicationDose")
     private String medicationDose;
@@ -120,12 +120,12 @@ public class HisClinEntity {
 		this.procedure = procedure;
 	}
 
-	public String getMedication() {
-		return medication;
+	public String getMedicationName() {
+		return medicationName;
 	}
 
-	public void setMedication(String medication) {
-		this.medication = medication;
+	public void setMedicationName(String medicationName) {
+		this.medicationName = medicationName;
 	}
 
 	public String getMedicationDose() {

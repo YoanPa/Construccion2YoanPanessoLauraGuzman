@@ -35,7 +35,7 @@ public class PersonAdapter implements PersonPort {
 	}
 
 	@Override
-	public Person findBypersonId(long personId) {
+	public Person findByPersonId(long personId) {
 
 		PersonEntity personEntity = personRepository.findByPersonId(personId);
 		return personAdapter(personEntity);
@@ -60,10 +60,5 @@ public class PersonAdapter implements PersonPort {
 		
 	}
 
-	@Override
-	public Person findbyOrderId(long personId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
 	

@@ -1,15 +1,18 @@
 package app.ports;
 
+import java.util.List;
+
 import app.domain.models.Order;
 
 public interface OrderPort {
-	public Order saveOrder(Order order);
 	
-	public Order deleteOrder(Order order);
+	boolean existsOrder(long orderId);
 	
-	public Order findByOrderId(Long orderId);
+	public void saveOrder(Order order);
+		
+	public Order findByOrderId(long orderId);
 
-	boolean existsOrderId(Order order);
+	List<Order> findAllOrders();
 
 	
 }

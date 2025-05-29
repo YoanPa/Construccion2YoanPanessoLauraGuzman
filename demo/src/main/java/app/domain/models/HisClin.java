@@ -2,10 +2,10 @@ package app.domain.models;
 
 import java.sql.Date;
 
-import app.adapters.person.entity.PersonEntity;
-import app.adapters.pet.entity.PetEntity;
+
 
 public class HisClin {
+	private long hisclinId;
 	private Date date;
     private User veterinarianId;
     private String consultationReason;
@@ -19,7 +19,13 @@ public class HisClin {
     private String allergyMedications;
     private String procedureDetails;
     private boolean orderCanceled;
-	
+    private Pet pet;
+	public long getHisclinId() {
+		return hisclinId;
+	}
+	public void setHisclinId(long hisclinId) {
+		this.hisclinId = hisclinId;
+	}
 	public Date getDate() {
 		return date;
 	}
@@ -32,17 +38,17 @@ public class HisClin {
 	public void setVeterinarianId(User veterinarianId) {
 		this.veterinarianId = veterinarianId;
 	}
-	public String getSymptoms() {
-		return symptoms;
-	}
-	public void setSymptoms(String symptoms) {
-		this.symptoms = symptoms;
-	}
 	public String getConsultationReason() {
 		return consultationReason;
 	}
 	public void setConsultationReason(String consultationReason) {
 		this.consultationReason = consultationReason;
+	}
+	public String getSymptoms() {
+		return symptoms;
+	}
+	public void setSymptoms(String symptoms) {
+		this.symptoms = symptoms;
 	}
 	public String getDiagnosis() {
 		return diagnosis;
@@ -98,39 +104,13 @@ public class HisClin {
 	public void setOrderCanceled(boolean orderCanceled) {
 		this.orderCanceled = orderCanceled;
 	}
-	
-	public void setHistoryId(Object historyId) {
-		// TODO Auto-generated method stub
-		
-	}
-	public Object getHistoryId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	public Pet getPet() {
-		// TODO Auto-generated method stub
-		return null;
+		return pet;
 	}
-	public Object getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
-	public void setPet(PetEntity petAdapter) {
-		// TODO Auto-generated method stub
 		
-	}
-	public void setDescription(Object description) {
-		
-	}
-	public void setVeterinarianId(PersonEntity personAdapter) {
-		
-		
-	}
-	public void setPetId(long petId) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }
 
 

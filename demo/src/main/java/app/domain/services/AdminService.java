@@ -14,7 +14,7 @@ public class AdminService {
 		if (personPort.existPerson(seller.getPersonId())) {
 			throw new Exception("ya existe una persona con esta cedula");
 		}
-		if(userPort.existUserName(seller.getUserName())) {
+		if(userPort.existByUserName(seller.getUserName())) {
 			throw new Exception("ya existe un usuario con ese nombre");
 		}
 		if (!"Vendedor".equals(seller.getRole())) {

@@ -18,6 +18,10 @@ import lombok.Setter;
 public class HisClinEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    @Column(name = "historiaclinica")
+    private long hisclinId;
+    
     @Column(name = "date")
     private Date date;
 
@@ -58,6 +62,15 @@ public class HisClinEntity {
 
     @Column(name = "orderCanceled")
     private boolean orderCanceled;
+
+	
+    public long getHisclinId() {
+		return hisclinId;
+	}
+
+	public void setHisclinId(long hisclinId) {
+		this.hisclinId = hisclinId;
+	}
 
 	public Date getDate() {
 		return date;

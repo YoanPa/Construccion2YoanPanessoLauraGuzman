@@ -4,9 +4,7 @@ import app.domain.models.Pet;
 
 public interface PetPort {
 	
-	public boolean exitsPetId(Pet petId);
-	
+	public boolean exitsPet(long petId);
 	public void savePet(Pet pet);
-	
-	public Pet findbyPetId(Pet petId);
+	public Pet findByPetId(long petId);
 }

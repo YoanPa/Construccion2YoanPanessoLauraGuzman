@@ -1,44 +1,60 @@
 package app.adapters.user.entity;
 
 import app.adapters.person.entity.PersonEntity;
-import app.domain.models.User;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "user")
 public class UserEntity {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JoinColumn(name="personid")
-	@OneToOne
-	private PersonEntity personId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Column(name = "id")
+    private long id;
+	
+	@OneToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "person_id")
+	private PersonEntity person;
+	
 	@Column(name = "userName")
-	private User userName;
+	private String userName;
+	
 	@Column(name = "password")
-	private long password;
-	public PersonEntity getPersonId() {
-		return personId;
+	private String password;
+	
+	public long getId() {
+		return id;
 	}
-	public void setPersonId(PersonEntity personId) {
-		this.personId = personId;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public User getUserName() {
+	public PersonEntity getPerson() {
+		return person;
+	}
+	public void setPerson(PersonEntity person) {
+		this.person = person;
+	}
+	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(User userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public long getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(long password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }

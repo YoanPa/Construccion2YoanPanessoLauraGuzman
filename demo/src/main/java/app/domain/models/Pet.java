@@ -1,11 +1,9 @@
 package app.domain.models;
 
-import app.adapters.person.entity.PersonEntity;
-
 public class Pet {
 	private long petId;
 	private String petname;
-	private PersonEntity owner;
+	private Person owner;
 	private int age;
 	private String species;
 	private String breed;
@@ -23,11 +21,8 @@ public class Pet {
 	public void setPetname(String petname) {
 		this.petname = petname;
 	}
-	public PersonEntity getOwner() {
+	public Person getOwner() {
 		return owner;
-	}
-	public void setOwner(PersonEntity personEntity) {
-		this.owner = personEntity;
 	}
 	public int getAge() {
 		return age;

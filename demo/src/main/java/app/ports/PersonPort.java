@@ -7,7 +7,5 @@ public interface PersonPort{
 	
 	public void savePerson(Person person);
 	
-	public Person findbyOrderId(long personId);
-
-	Person findBypersonId(long personId);
+	Person findByPersonId(long personId);
 }

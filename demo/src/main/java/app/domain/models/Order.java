@@ -5,7 +5,7 @@ public class Order {
     private Pet pet;
     private Person owner;
     private User veterinarian;
-    private HisClin medicationName;
+    private String medicationName;
     private String creationDate;
     
 	public long getOrderId() {
@@ -32,10 +32,10 @@ public class Order {
 	public void setVeterinarian(User veterinarian) {
 		this.veterinarian = veterinarian;
 	}
-	public HisClin getMedicationName() {
+	public String getMedicationName() {
 		return medicationName;
 	}
-	public void setMedicationName(HisClin medicationName) {
+	public void setMedicationName(String medicationName) {
 		this.medicationName = medicationName;
 	}
 	public String getCreationDate() {

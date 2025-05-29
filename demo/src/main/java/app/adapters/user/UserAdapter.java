@@ -7,6 +7,7 @@ import app.adapters.user.entity.UserEntity;
 import app.adapters.user.repository.UserRepository;
 import app.domain.models.Person;
 import app.domain.models.User;
+import app.ports.PersonPort;
 import app.ports.UserPort;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,27 +20,22 @@ import lombok.Setter;
 public class UserAdapter implements UserPort {
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private PersonPort personPort;
+	
 	@Override
-	public boolean existUserName(User userName) {
+	public boolean existUserName(String userName) {
 		return userRepository.existsByUserName(userName);
 	}
-
 
 	@Override
 	public void saveUser(User user) {
 		UserEntity userEntity = userEntityAdapter(user);
 		userRepository.save(userEntity);
 		user.setUserName(userEntity.getUserName());	
-		//talvez toque hacer cambios en el setusername por setpersonid
 	}
 	
-	@Override
-	public User findByPersonId(Person person) {
-		PersonEntity personEntity = personAdapter(person);
-		UserEntity userEntity = userRepository.findByPersonId(personEntity);
-		User user = userAdapter(userEntity);
-		return user;
-	}
 
 	@Override
 	public User findByUserName(User user) {
@@ -51,14 +47,13 @@ public class UserAdapter implements UserPort {
 	}
 	
 	private User userAdapter(UserEntity userEntity) {
-		if (userEntity == null) {
+		if (userEntity == null)
 			return null;
-		}
 		User user = new User();
-		user.setPersonId(userEntity.getPersonId().getPersonId());
-		user.setName(userEntity.getPersonId().getName());
-		user.setAge(userEntity.getPersonId().getAge());
-		user.setRole(userEntity.getPersonId().getRole());
+		user.setId(userEntity.getId());
+		user.setName(userEntity.getPerson().getName());
+		user.setAge(userEntity.getPerson().getAge());
+		user.setRole(userEntity.getPerson().getRole());
 		user.setUserName(userEntity.getUserName());
 		user.setPassword(userEntity.getPassword());
 		return user;

@@ -7,10 +7,8 @@ import app.domain.models.User;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	
-	public boolean existsByUserName(User userName);
+	public boolean existsByUserName(String userName);
 
-	public UserEntity findByPersonId(PersonEntity personEntity);
-
-	public UserEntity findByUserName(User user);
+	UserEntity findByUserName(String userName);
 
 }

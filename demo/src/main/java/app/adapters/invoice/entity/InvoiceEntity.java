@@ -1,6 +1,10 @@
 package app.adapters.invoice.entity;
 
-import app.adapters.person.entity.PersonEntity;
+import java.sql.Date;
+
+import app.domain.models.Order;
+import app.domain.models.Person;
+import app.domain.models.Pet;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,59 +17,89 @@ public class InvoiceEntity {
     @Column(name = "id")
     private long invoiceId;
     
-    @Column(name = "client")
-    private PersonEntity client;
+    @Column(name = "pet")
+    private Pet pet;
+    
+    @Column(name = "owner")
+    private Person owner;
+    
+    @Column(name = "order")
+    private Order order;
+    
+    @Column(name = "productName")
+    private String productName;
+    
+    @Column(name = "price")
+    private long price;
+    
+    @Column(name = "quantity")
+    private int quantity;
     
     @Column(name = "date")
-    private java.util.Date date;
-    
-    @Column(name = "total")
-    private double total;
-    
-    public long getInvoiceId() {
-        return invoiceId;
-    }
+    private Date date;
 
-    public void setInvoiceId(long invoiceId) {
-        this.invoiceId = invoiceId;
-    }
-
-    public PersonEntity getClient() {
-        return client;
-    }
-
-    public void setClient(PersonEntity client) {
-        this.client = client;
-    }
-
-    public java.util.Date getDate() {
-        return date;
-    }
-
-    public void setDate(java.util.Date date) {
-        this.date = date;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-	public void setAmount(Object amount) {
-		// TODO Auto-generated method stub
-		
+	public long getInvoiceId() {
+		return invoiceId;
 	}
 
-	public Object getAmount1() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setInvoiceId(long invoiceId) {
+		this.invoiceId = invoiceId;
 	}
 
-	public Object getAmount() {
-		// TODO Auto-generated method stub
-		return null;
+	public Pet getPet() {
+		return pet;
 	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+
+	public Person getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Person owner) {
+		this.owner = owner;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public long getPrice() {
+		return price;
+	}
+
+	public void setPrice(long price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+        
 }

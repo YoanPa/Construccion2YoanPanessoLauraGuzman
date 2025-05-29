@@ -1,6 +1,9 @@
 package app.adapters.order.entity;
 
-import app.adapters.person.entity.PersonEntity;
+import app.domain.models.Person;
+import app.domain.models.HisClin;
+import app.domain.models.Pet;
+import app.domain.models.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,45 +18,68 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long orderId;
+    
+    @Column(name = "pet")
+    private Pet pet;
+    
+    @Column(name = "owner")
+    private Person owner;
+    
+    @Column(name = "veterinarian")
+    private User veterinarian;
+    
+    @Column(name = "medicationName")
+    private HisClin medicationName;
+    
+    @Column(name = "creationDate")
+    private String ceationDate;
 
-    @Column(name = "customer")
-    private PersonEntity customer;
+	public long getOrderId() {
+		return orderId;
+	}
 
-    @Column(name = "order_date")
-    private String orderDate;
+	public void setOrderId(long orderId) {
+		this.orderId = orderId;
+	}
 
-    @Column(name = "total_amount")
-    private double totalAmount;
+	public Pet getPet() {
+		return pet;
+	}
 
-    public long getOrderId() {
-        return orderId;
-    }
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
-    }
+	public Person getOwner() {
+		return owner;
+	}
 
-    public PersonEntity getCustomer() {
-        return customer;
-    }
+	public void setOwner(Person owner) {
+		this.owner = owner;
+	}
 
-    public void setCustomer(PersonEntity customer) {
-        this.customer = customer;
-    }
+	public User getVeterinarian() {
+		return veterinarian;
+	}
 
-    public String getOrderDate() {
-        return orderDate;
-    }
+	public void setVeterinarian(User veterinarian) {
+		this.veterinarian = veterinarian;
+	}
 
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
-    }
+	public HisClin getMedicationName() {
+		return medicationName;
+	}
 
-    public double getTotalAmount() {
-        return totalAmount;
-    }
+	public void setMedicationName(HisClin medicationName) {
+		this.medicationName = medicationName;
+	}
 
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+	public String getCeationDate() {
+		return ceationDate;
+	}
+
+	public void setCeationDate(String ceationDate) {
+		this.ceationDate = ceationDate;
+	}
+
 }

@@ -7,6 +7,7 @@ public class Order {
     private User veterinarian;
     private HisClin medicationName;
     private String creationDate;
+    
 	public long getOrderId() {
 		return orderId;
 	}

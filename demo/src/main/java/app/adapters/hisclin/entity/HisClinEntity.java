@@ -1,12 +1,10 @@
 package app.adapters.hisclin.entity;
 
-import app.adapters.pet.entity.PetEntity;
-import app.domain.models.Person;
-import app.domain.models.Pet;
+import app.domain.models.Order;
+import app.domain.models.User;
 
 import java.sql.Date;
 
-import app.adapters.person.entity.PersonEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,65 +18,149 @@ import lombok.Setter;
 public class HisClinEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "history_id")
-    private long historyId;
-
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
-    private PetEntity pet;
-
-    @ManyToOne
-    @JoinColumn(name = "veterinarian_id")
-    private PersonEntity veterinarian;
-
     @Column(name = "date")
-    private String date;
+    private Date date;
 
-    @Column(name = "description", length = 500)
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "veterianrianId")
+    private User veterianrianId;
 
-	public Object getHistoryId() {
-		return null;
-	}
+    @ManyToOne
+    @JoinColumn(name = "consultationReason")
+    private String consultationReason;
 
-	public void setHistoryId(Object historyId2) {
-		
-	}
+    @Column(name = "symptoms")
+    private String symptons;
 
-	public void setPet(PetEntity petAdapter) {
-		
-	}
+    @Column(name = "diagnosis")
+    private String diagnosis;
+    
+    @Column(name = "procedure")
+    private String procedure;
 
-	public void setVeterinarian(PersonEntity personAdapter) {
-		
-	}
+    @Column(name = "medication")
+    private String medication;
 
-	public void setDate(Date date2) {
-		
-	}
+    @Column(name = "medicationDose")
+    private String medicationDose;
 
-	public void setDescription(Object description2) {
-		
-	}
+    @Column(name = "orderId")
+    private Order orderId;
 
-	public Pet getPet() {
-		return null;
-	}
+    @Column(name = "vaccinationHistory")
+    private String vaccinationHistory;
 
-	public Person getVeterinarianId() {
-		return null;
-	}
+    @Column(name = "allergyMedications")
+    private String allergyMedications;
 
-	public Object getDescription() {
-		
-		return null;
-	}
+    @Column(name = "procedureDetails")
+    private String procedureDetails;
+
+    @Column(name = "orderCanceled")
+    private boolean orderCanceled;
 
 	public Date getDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return date;
 	}
 
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
+	public User getVeterianrianId() {
+		return veterianrianId;
+	}
+
+	public void setVeterianrianId(User veterianrianId) {
+		this.veterianrianId = veterianrianId;
+	}
+
+	public String getConsultationReason() {
+		return consultationReason;
+	}
+
+	public void setConsultationReason(String consultationReason) {
+		this.consultationReason = consultationReason;
+	}
+
+	public String getSymptons() {
+		return symptons;
+	}
+
+	public void setSymptons(String symptons) {
+		this.symptons = symptons;
+	}
+
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public String getProcedure() {
+		return procedure;
+	}
+
+	public void setProcedure(String procedure) {
+		this.procedure = procedure;
+	}
+
+	public String getMedication() {
+		return medication;
+	}
+
+	public void setMedication(String medication) {
+		this.medication = medication;
+	}
+
+	public String getMedicationDose() {
+		return medicationDose;
+	}
+
+	public void setMedicationDose(String medicationDose) {
+		this.medicationDose = medicationDose;
+	}
+
+	public Order getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Order orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getVaccinationHistory() {
+		return vaccinationHistory;
+	}
+
+	public void setVaccinationHistory(String vaccinationHistory) {
+		this.vaccinationHistory = vaccinationHistory;
+	}
+
+	public String getAllergyMedications() {
+		return allergyMedications;
+	}
+
+	public void setAllergyMedications(String allergyMedications) {
+		this.allergyMedications = allergyMedications;
+	}
+
+	public String getProcedureDetails() {
+		return procedureDetails;
+	}
+
+	public void setProcedureDetails(String procedureDetails) {
+		this.procedureDetails = procedureDetails;
+	}
+
+	public boolean isOrderCanceled() {
+		return orderCanceled;
+	}
+
+	public void setOrderCanceled(boolean orderCanceled) {
+		this.orderCanceled = orderCanceled;
+	}
 
 }

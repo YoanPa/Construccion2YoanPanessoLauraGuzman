@@ -61,7 +61,7 @@ public class HisClinAdapter implements HisClinPort {
         hisClinEntity.setVaccinationHistory(hisClin.getVaccinationHistory());
         hisClinEntity.setAllergyMedications(hisClin.getAllergyMedications());
         hisClinEntity.setProcedureDetails(hisClin.getProcedureDetails());
-        hisClinEntity.setOrderCanceled(true);
+        hisClinEntity.setOrderCanceled(false);
         return hisClinEntity;
     }
 
